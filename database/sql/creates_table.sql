@@ -134,24 +134,3 @@ CREATE TABLE sheet_attribute (
     FOREIGN KEY (id_sheet_fk) REFERENCES sheets(id) ON DELETE CASCADE,
     FOREIGN KEY (id_attribute_fk) REFERENCES attributes(id) ON DELETE CASCADE
 );
-
-CREATE TABLE user_favorites (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_user_fk INT NOT NULL,
-    target_type ENUM('rpg', 'folder', 'sheet', 'file') NOT NULL,
-    target_id INT NOT NULL,
-    FOREIGN KEY (id_user_fk) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE tags (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    tag_name VARCHAR(50) NOT NULL UNIQUE
-);
-
-CREATE TABLE rpg_tags (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    id_rpg_fk INT NOT NULL,
-    id_tag_fk INT NOT NULL,
-    FOREIGN KEY (id_rpg_fk) REFERENCES rpgs(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_tag_fk) REFERENCES tags(id) ON DELETE CASCADE
-);

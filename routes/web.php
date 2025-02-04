@@ -77,13 +77,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/rpg/{rpg_hash}/folders/{folder_hash}/create', [FolderController::class, 'create'])->name('folders.create');
     Route::get('/rpg/{rpg_hash}/folders/{folder_hash}/files/create', [FileController::class, 'create'])->name('files.create');
     Route::get('/rpg/{rpg_hash}/folders/{folder_hash}/sheets/create', [SheetController::class, 'create'])->name('sheets.create');
-
-    Route::post('/user/favorite', [FavoriteController::class, 'toggleFavorite'])->name('user.favorites.toggle');
-    Route::get('/user/favorites', [UserFavoriteController::class, 'index'])->name('user.favorites.index');
-    Route::post('/user/favorites', [UserFavoriteController::class, 'store'])->name('user.favorites.store');
-    Route::delete('/user/favorites/{favorite_hash}', [UserFavoriteController::class, 'destroy'])->name('user.favorites.destroy');
-
-    Route::get('/rpg/{rpg_hash}/tags', [TagController::class, 'index'])->name('tags.index');
-    Route::post('/rpg/{rpg_hash}/tags', [TagController::class, 'store'])->name('tags.store');
-    Route::delete('/rpg/{rpg_hash}/tags/{tag_hash}', [TagController::class, 'destroy'])->name('tags.destroy');
 });
